@@ -1,18 +1,15 @@
 package com.example.rahul.phpproject.background;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
-
-import com.example.rahul.phpproject.MainActivity;
-import com.example.rahul.phpproject.R;
-import com.example.rahul.phpproject.RegisterActivity;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -22,23 +19,24 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Base64;
 
 /**
  * Created by rahul on 30/3/18.
  */
 
-public class Register extends AsyncTask<String, Void, String>{
+public class UploadImage extends AsyncTask<Bitmap, Void, String> {
 
     Context context;
     ProgressDialog progressDialog;
-    String regiterUrl;
 
-    public Register(Context context) {
+    public UploadImage(Context context) {
         this.context = context;
     }
 
     @Override
     protected void onPreExecute() {
+        super.onPreExecute();
 //        progressDialog=new ProgressDialog(context);
 //        progressDialog.setProgressStyle(R.style.Theme_AppCompat_DayNight_DarkActionBar);
 //        progressDialog.setCancelable(false);
@@ -54,12 +52,11 @@ public class Register extends AsyncTask<String, Void, String>{
     }
 
     @Override
-    protected String doInBackground(String... voids) {
-        String addUserUrl="http://192.168.0.6/phpProject/register.php";
+    protected String doInBackground(Bitmap... voids) {
 
-        String name=voids[0];
-        String email=voids[1];
-        String Password=voids[2];
+        String addUserUrl="http://192.168.0.6/phpProject/uploadImage.php";
+
+        Bitmap bitmap=voids[0];
 
 //        try {
 //            Thread.sleep(3000);
@@ -74,9 +71,8 @@ public class Register extends AsyncTask<String, Void, String>{
             httpURLConnection.setDoOutput(true);
             OutputStream outputStream=httpURLConnection.getOutputStream();
             BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
-            String userData= URLEncoder.encode("name","UTF-8")+"="+URLEncoder.encode(name,"UTF-8")+"&"+
-                    URLEncoder.encode("password","UTF-8")+"="+URLEncoder.encode(Password,"UTF-8")+"&"+
-                    URLEncoder.encode("email","UTF-8")+"="+URLEncoder.encode(email,"UTF-8");
+            String userData= URLEncoder.encode("image","UTF-8")+"="+URLEncoder.encode(imageToString(bitmap),"UTF-8");
+            Log.d("userData",userData);
             bufferedWriter.write(userData);
             bufferedWriter.flush();
             bufferedWriter.close();
@@ -102,34 +98,21 @@ public class Register extends AsyncTask<String, Void, String>{
             e.printStackTrace();
         }
 
-
         return null;
     }
 
     @Override
-    protected void onPostExecute(final String aVoid) {
-
-//        if (progressDialog!=null && progressDialog.isShowing())
-//        {
-//            progressDialog.dismiss();
-//        }
-
-        AlertDialog.Builder builder=new AlertDialog.Builder(context);
-        builder.setMessage(aVoid)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        if (aVoid.equals("User already exist with this email address") || aVoid.equals("Error in registration"))
-                            dialogInterface.cancel();
-                        else {
-                            dialogInterface.cancel();
-                            context.startActivity(new Intent(context, MainActivity.class));
-                            new RegisterActivity().finish();
-                        }
-                    }
-                });
-        AlertDialog alertDialog=builder.create();
-        alertDialog.show();
+    protected void onPostExecute(String aVoid) {
+        super.onPostExecute(aVoid);
+        Toast.makeText(context,aVoid,Toast.LENGTH_LONG).show();
     }
+
+    public String imageToString(Bitmap bitmap)
+    {
+        ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        byte[] imageBytes=byteArrayOutputStream.toByteArray();
+        return android.util.Base64.encodeToString(imageBytes, android.util.Base64.DEFAULT);
+    }
+
 }
