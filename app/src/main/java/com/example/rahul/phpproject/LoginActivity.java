@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.rahul.phpproject.background.Login;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,12 +35,30 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                editor.putString("email",email.getText().toString());
-                editor.putString("password",password.getText().toString());
-                editor.apply();
+                String Email=email.getText().toString();
+                String Password=password.getText().toString();
 
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                finish();
+                if (!TextUtils.isEmpty(Email) && !TextUtils.isEmpty(Password))
+                {
+                    if (Email.endsWith(".com") || Email.endsWith(".in"))
+                    {
+                        editor.putString("email",Email);
+                        editor.putString("password",Password);
+                        editor.apply();
+
+                        Login login=new Login(LoginActivity.this);
+                        login.execute(Email,Password);
+                    }
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),"Please enter a valid email address(e.g; abc@xyz.com)",Toast.LENGTH_LONG).show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"All the fields are compulsory",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 

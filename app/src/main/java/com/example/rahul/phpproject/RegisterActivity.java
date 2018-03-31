@@ -7,9 +7,11 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -18,6 +20,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.rahul.phpproject.background.Register;
 import com.example.rahul.phpproject.background.UploadImage;
+
+import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -75,18 +79,40 @@ public class RegisterActivity extends AppCompatActivity {
 
                 String Name=name.getText().toString();
                 String Email=email.getText().toString();
-                String Password=email.getText().toString();
+                String Password=password.getText().toString();
 
-                editor.putString("name",Name);
-                editor.putString("email",Email);
-                editor.putString("password",Password);
-                editor.apply();
+                if (!TextUtils.isEmpty(Name) && !TextUtils.isEmpty(Email) && !TextUtils.isEmpty(Password))
+                {
 
-                Register register=new Register(RegisterActivity.this);
-                register.execute(Name,Email,Password);
+                    if (Email.endsWith(".com") || Email.endsWith(".in"))
+                    {
+                        if (Password.length()>=6)
+                        {
+                            editor.putString("name",Name);
+                            editor.putString("email",Email);
+                            editor.putString("password",Password);
+                            editor.apply();
 
-//                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-//                //finish();
+                            Register register=new Register(RegisterActivity.this);
+                            register.execute(Name,Email,Password);
+              //              Toast.makeText(getApplicationContext(),Password.length()+"",Toast.LENGTH_LONG).show();
+
+                       }
+                       else
+                        {
+                            Toast.makeText(getApplicationContext(),"Password must be of atleast 6 characters",Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    else
+                    {
+                        Toast.makeText(getApplicationContext(),"Please enter a valid email address(e.g; abc@xyz.com)",Toast.LENGTH_LONG).show();
+                    }
+
+                }
+                else {
+                    Toast.makeText(getApplicationContext(),"All fields are compulsory",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
