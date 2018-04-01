@@ -1,4 +1,4 @@
-package com.example.rahul.phpproject;
+package com.example.rahul.phpproject.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,20 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.example.rahul.phpproject.R;
 import com.example.rahul.phpproject.background.Register;
 import com.example.rahul.phpproject.background.UploadImage;
 
-import org.w3c.dom.Text;
-
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

@@ -7,9 +7,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 
-import com.example.rahul.phpproject.MainActivity;
-import com.example.rahul.phpproject.R;
-import com.example.rahul.phpproject.RegisterActivity;
+import com.example.rahul.phpproject.Activities.MainActivity;
+import com.example.rahul.phpproject.Activities.RegisterActivity;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

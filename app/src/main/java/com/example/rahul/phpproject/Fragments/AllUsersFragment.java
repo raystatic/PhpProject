@@ -1,4 +1,4 @@
-package com.example.rahul.phpproject;
+package com.example.rahul.phpproject.Fragments;
 
 
 import android.os.Bundle;
@@ -7,14 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.rahul.phpproject.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NotificationFragment extends Fragment {
+public class AllUsersFragment extends Fragment {
 
 
-    public NotificationFragment() {
+    public AllUsersFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +25,7 @@ public class NotificationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notification, container, false);
+        return inflater.inflate(R.layout.fragment_all_users, container, false);
     }
 
 }

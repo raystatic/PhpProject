@@ -1,4 +1,4 @@
-package com.example.rahul.phpproject;
+package com.example.rahul.phpproject.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.rahul.phpproject.R;
 import com.example.rahul.phpproject.background.Login;
 
 public class LoginActivity extends AppCompatActivity {

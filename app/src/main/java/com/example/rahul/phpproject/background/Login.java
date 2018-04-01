@@ -6,9 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 
-import com.example.rahul.phpproject.LoginActivity;
-import com.example.rahul.phpproject.MainActivity;
-import com.example.rahul.phpproject.RegisterActivity;
+import com.example.rahul.phpproject.Activities.LoginActivity;
+import com.example.rahul.phpproject.Activities.MainActivity;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -1,14 +1,18 @@
-package com.example.rahul.phpproject;
+package com.example.rahul.phpproject.Adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.rahul.phpproject.Fragments.AllUsersFragment;
+import com.example.rahul.phpproject.Fragments.NotificationFragment;
+import com.example.rahul.phpproject.Fragments.ProfileFragment;
+
 /**
  * Created by rahul on 29/3/18.
  */
 
-class PagerViewAdapter  extends FragmentPagerAdapter{
+public class PagerViewAdapter  extends FragmentPagerAdapter{
 
     public PagerViewAdapter(FragmentManager fm) {
         super(fm);
