@@ -54,7 +54,7 @@ public class UploadImage extends AsyncTask<Bitmap, Void, String> {
     @Override
     protected String doInBackground(Bitmap... voids) {
 
-        String addUserUrl="http://192.168.0.6/phpProject/uploadImage.php";
+        String addUserUrl="http://192.168.43.92/phpProject/uploadImage.php";
 
         Bitmap bitmap=voids[0];
 

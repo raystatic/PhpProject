@@ -54,7 +54,7 @@ public class Register extends AsyncTask<String, Void, String>{
 
     @Override
     protected String doInBackground(String... voids) {
-        String addUserUrl="http://192.168.0.6/phpProject/register.php";
+        String addUserUrl="http://192.168.43.92/phpProject/register.php";
 
         String name=voids[0];
         String email=voids[1];

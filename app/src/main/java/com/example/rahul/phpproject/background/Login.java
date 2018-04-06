@@ -43,7 +43,7 @@ public class Login extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... voids) {
 
-        String addUserUrl="http://192.168.0.6/phpProject/login.php";
+        String addUserUrl="http://192.168.43.92/phpProject/login.php";
 
         String email=voids[0];
         String Password=voids[1];
