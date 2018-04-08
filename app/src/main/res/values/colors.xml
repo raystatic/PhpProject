@@ -4,8 +4,14 @@
     <color name="colorPrimaryDark">#009BFC</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="black">#000</color>
+    <color name="white">#fff</color>
     <color name="textTabLight">#7EC6FF</color>
     <color name="textTabBright">#ffffff</color>
-    <color name="lightGrey"> 	#A9A9A9</color>
+    <color name="lightGrey">#A9A9A9</color>
+
+    <color name="chatBackground">#dae2de</color>
+
+    <color name="black_overlay">#66000000</color>
 
 </resources>

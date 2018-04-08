@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dae2de"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linTool">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/toolbar"
+        android:theme="@style/ToolbarColor"
+        android:background="@color/colorPrimaryDark">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvChatName"
+                android:text="Friend"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/infotv"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:text="Send a message first to view older messages"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerInParent="true"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linTool"
+        android:fillViewport="true"
+        android:layout_marginTop="5dp"
+        android:layout_above="@+id/relParentType"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:id="@+id/recyclerViewChats"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relParentType"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:id="@+id/relType"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/background_et">
+            <EditText
+                android:layout_width="310dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_alignParentBottom="true"
+                android:hint="Type a message"
+                android:id="@+id/etTypeChat"
+                />
+        </RelativeLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_send"
+            android:id="@+id/send"
+            android:layout_toRightOf="@+id/relType"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

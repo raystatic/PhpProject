@@ -1,6 +1,7 @@
 package com.example.rahul.phpproject.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+//import com.example.rahul.phpproject.Activities.ChatActivity;
+import com.example.rahul.phpproject.Activities.Chat3Activity;
 import com.example.rahul.phpproject.R;
 import com.example.rahul.phpproject.model.Users;
 
@@ -50,7 +53,7 @@ public class AllUsersRecyclerViewAdapter extends RecyclerView.Adapter<AllUsersRe
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         //Users users=usersArrayList.get(position);
         String imageResponse= null;
         try {
@@ -73,6 +76,17 @@ public class AllUsersRecyclerViewAdapter extends RecyclerView.Adapter<AllUsersRe
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        holder.parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    startChat(name.getString(position), email.getString(position));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     @Override
@@ -104,6 +118,15 @@ public class AllUsersRecyclerViewAdapter extends RecyclerView.Adapter<AllUsersRe
             e.getMessage();
             return null;
         }
+    }
+
+    public void startChat(String friend, String friendEmail)
+    {
+        Intent intent=new Intent(context,Chat3Activity.class);
+
+        intent.putExtra("friend",friend);
+        intent.putExtra("email",friendEmail);
+        context.startActivity(intent);
     }
 
 }
