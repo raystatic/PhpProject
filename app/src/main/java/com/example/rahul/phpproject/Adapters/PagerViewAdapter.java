@@ -27,8 +27,8 @@ public class PagerViewAdapter  extends FragmentPagerAdapter{
             return profileFragment;
             case 1:
                 return new AllUsersFragment();
-            case 2:
-                return new NotificationFragment();
+//            case 2:
+//                return new NotificationFragment();
 
                 default:
                     return null;
@@ -37,6 +37,6 @@ public class PagerViewAdapter  extends FragmentPagerAdapter{
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 }

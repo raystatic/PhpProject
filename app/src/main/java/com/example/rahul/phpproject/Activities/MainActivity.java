@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         profile=findViewById(R.id.profile);
         users=findViewById(R.id.allUsers);
-        notifications=findViewById(R.id.notifications);
+       // notifications=findViewById(R.id.notifications);
 
         viewPager=findViewById(R.id.mainPager);
 
@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        notifications.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewPager.setCurrentItem(2);
-            }
-        });
+//        notifications.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                viewPager.setCurrentItem(2);
+//            }
+//        });
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -102,16 +102,16 @@ public class MainActivity extends AppCompatActivity {
             notifications.setTextColor(getResources().getColor(R.color.textTabLight));
             notifications.setTextSize(16);
         }
-        if (position==2)
-        {
-            profile.setTextColor(getResources().getColor(R.color.textTabLight));
-            profile.setTextSize(16);
-
-            users.setTextColor(getResources().getColor(R.color.textTabLight));
-            users.setTextSize(16);
-
-            notifications.setTextColor(getResources().getColor(R.color.textTabBright));
-            notifications.setTextSize(22);
-        }
+//        if (position==2)
+//        {
+//            profile.setTextColor(getResources().getColor(R.color.textTabLight));
+//            profile.setTextSize(16);
+//
+//            users.setTextColor(getResources().getColor(R.color.textTabLight));
+//            users.setTextSize(16);
+//
+//            notifications.setTextColor(getResources().getColor(R.color.textTabBright));
+//            notifications.setTextSize(22);
+//        }
     }
 }

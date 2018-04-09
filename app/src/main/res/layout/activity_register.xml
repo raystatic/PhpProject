@@ -26,7 +26,7 @@
         app:civ_border_width="2dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/tv1"
-        android:src="@drawable/image1"
+        android:src="@mipmap/ic_cam"
         app:civ_border_color="#FF000000"/>
 
 
@@ -66,6 +66,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/passwordReg"
         android:paddingTop="15dp"
+        android:inputType="textPassword"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
