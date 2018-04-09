@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         pagerViewAdapter=new PagerViewAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerViewAdapter);
 
+
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
             users.setTextColor(getResources().getColor(R.color.textTabLight));
             users.setTextSize(16);
 
-            notifications.setTextColor(getResources().getColor(R.color.textTabLight));
-            notifications.setTextSize(16);
+//            notifications.setTextColor(getResources().getColor(R.color.textTabLight));
+//            notifications.setTextSize(16);
 
         }
         if (position==1)
@@ -99,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
             users.setTextColor(getResources().getColor(R.color.textTabBright));
             users.setTextSize(22);
 
-            notifications.setTextColor(getResources().getColor(R.color.textTabLight));
-            notifications.setTextSize(16);
+//            notifications.setTextColor(getResources().getColor(R.color.textTabLight));
+//            notifications.setTextSize(16);
         }
 //        if (position==2)
 //        {

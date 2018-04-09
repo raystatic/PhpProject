@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.rahul.phpproject.Fragments.AllUsersFragment;
-import com.example.rahul.phpproject.Fragments.NotificationFragment;
 import com.example.rahul.phpproject.Fragments.ProfileFragment;
 
 /**
