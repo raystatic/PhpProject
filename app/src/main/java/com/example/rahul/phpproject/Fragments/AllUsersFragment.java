@@ -66,4 +66,5 @@ public class AllUsersFragment extends Fragment implements UsersDataInterface{
         adapter=new AllUsersRecyclerViewAdapter(getActivity().getApplicationContext(),responseImage,email,name);
         recyclerViewUsers.setAdapter(adapter);
     }
+
 }

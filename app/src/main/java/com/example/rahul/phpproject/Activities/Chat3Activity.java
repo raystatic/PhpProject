@@ -176,4 +176,9 @@ public class Chat3Activity extends AppCompatActivity{
 //    }
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

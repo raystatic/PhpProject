@@ -115,4 +115,10 @@ public class MainActivity extends AppCompatActivity {
 //            notifications.setTextSize(22);
 //        }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
