@@ -126,6 +126,7 @@ public class AllUsersRecyclerViewAdapter extends RecyclerView.Adapter<AllUsersRe
 
         intent.putExtra("friend",friend);
         intent.putExtra("email",friendEmail);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 

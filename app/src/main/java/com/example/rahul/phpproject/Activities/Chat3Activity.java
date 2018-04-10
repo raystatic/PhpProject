@@ -83,7 +83,7 @@ public class Chat3Activity extends AppCompatActivity{
             @Override
             public void onChatFinishes(ArrayList<String> senders, ArrayList<String> reciever, ArrayList<String> msgs) {
                 LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
-                ChatAdapter adapter=new ChatAdapter(getApplicationContext(),senders,reciever,msgs, friendEmail, myEmail);
+                ChatAdapter adapter=new ChatAdapter(Chat3Activity.this,senders,reciever,msgs, friendEmail, myEmail);
                 recyclerView.setLayoutManager(layoutManager);
                 recyclerView.setAdapter(adapter);
             }
@@ -100,7 +100,7 @@ public class Chat3Activity extends AppCompatActivity{
                     @Override
                     public void onChatFinishes(ArrayList<String> senders, ArrayList<String> reciever, ArrayList<String> msgs) {
                         LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
-                        ChatAdapter adapter=new ChatAdapter(getApplicationContext(),senders,reciever,msgs, friendEmail, myEmail);
+                        ChatAdapter adapter=new ChatAdapter(Chat3Activity.this,senders,reciever,msgs, friendEmail, myEmail);
                         recyclerView.setLayoutManager(layoutManager);
                         recyclerView.setAdapter(adapter);
                     }
@@ -127,7 +127,7 @@ public class Chat3Activity extends AppCompatActivity{
                            @Override
                            public void onChatFinishes(ArrayList<String> senders, ArrayList<String> reciever, ArrayList<String> msgs) {
                                LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
-                               ChatAdapter adapter=new ChatAdapter(getApplicationContext(),senders,reciever,msgs, friendEmail, myEmail);
+                               ChatAdapter adapter=new ChatAdapter(Chat3Activity.this,senders,reciever,msgs, friendEmail, myEmail);
                                recyclerView.setLayoutManager(layoutManager);
                                recyclerView.setAdapter(adapter);
                            }
