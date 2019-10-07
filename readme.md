@@ -1,5 +1,5 @@
 **This is a php project.**
-This project was submitted ti anand sir.
+This project was submitted to Anand sir, professor in Delhi University.
 *Here are screenshot attached from app.*
 
 *user profile main page and use profile friendlist*
